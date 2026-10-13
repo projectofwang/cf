@@ -25,6 +25,7 @@ export const ResourceTaggingAccountResourceType = {
     KvNamespace: "kv_namespace",
     LoadBalancerMonitor: "load_balancer_monitor",
     LoadBalancerPool: "load_balancer_pool",
+    NamespaceWorker: "namespace_worker",
     PagesProject: "pages_project",
     Queue: "queue",
     R2Bucket: "r2_bucket",

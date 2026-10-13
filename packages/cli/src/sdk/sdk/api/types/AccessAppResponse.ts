@@ -385,6 +385,7 @@ export type AccessAppResponse =
           updated_at?: CloudflareApi.AccessUpdatedAt | undefined;
           mfa_config?: CloudflareApi.AccessInfraMfaConfig | undefined;
           name?: CloudflareApi.AccessName8 | undefined;
+          session_duration?: string | undefined;
           type:
               | "self_hosted"
               | "end_user"

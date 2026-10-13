@@ -2175,6 +2175,25 @@
       "tag_name"
     ]
   },
+  "access-user-populations-create-user": {
+    "accessor": [
+      "zeroTrust",
+      "access",
+      "userPopulations",
+      "users"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/access/user_populations/{user_population_id}/users",
+    "requestType": "CreateUsersRequest",
+    "responseType": "AccessScimUser",
+    "requestBodyProperty": "body",
+    "requiredRequestProperties": [
+      "account_id",
+      "body",
+      "user_population_id"
+    ]
+  },
   "access-user-populations-create-user-population": {
     "accessor": [
       "zeroTrust",
@@ -2192,6 +2211,23 @@
       "body"
     ]
   },
+  "access-user-populations-delete-user": {
+    "accessor": [
+      "zeroTrust",
+      "access",
+      "userPopulations",
+      "users"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/access/user_populations/{user_population_id}/users/{user_id}",
+    "requestType": "DeleteUsersRequest",
+    "requiredRequestProperties": [
+      "account_id",
+      "user_id",
+      "user_population_id"
+    ]
+  },
   "access-user-populations-delete-user-population": {
     "accessor": [
       "zeroTrust",
@@ -2205,6 +2241,24 @@
     "responseType": "DeleteUserPopulationsResponse",
     "requiredRequestProperties": [
       "account_id",
+      "user_population_id"
+    ]
+  },
+  "access-user-populations-get-user": {
+    "accessor": [
+      "zeroTrust",
+      "access",
+      "userPopulations",
+      "users"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/access/user_populations/{user_population_id}/users/{user_id}",
+    "requestType": "GetUsersRequest",
+    "responseType": "AccessScimUser",
+    "requiredRequestProperties": [
+      "account_id",
+      "user_id",
       "user_population_id"
     ]
   },
@@ -2237,6 +2291,62 @@
     "responseType": "ListUserPopulationsResponse",
     "requiredRequestProperties": [
       "account_id"
+    ]
+  },
+  "access-user-populations-list-users": {
+    "accessor": [
+      "zeroTrust",
+      "access",
+      "userPopulations",
+      "users"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/access/user_populations/{user_population_id}/users",
+    "requestType": "ListUsersRequest",
+    "responseType": "AccessScimUserListResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "user_population_id"
+    ]
+  },
+  "access-user-populations-replace-user": {
+    "accessor": [
+      "zeroTrust",
+      "access",
+      "userPopulations",
+      "users"
+    ],
+    "method": "replace",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/access/user_populations/{user_population_id}/users/{user_id}",
+    "requestType": "ReplaceUsersRequest",
+    "responseType": "AccessScimUser",
+    "requestBodyProperty": "body",
+    "requiredRequestProperties": [
+      "account_id",
+      "body",
+      "user_id",
+      "user_population_id"
+    ]
+  },
+  "access-user-populations-update-user": {
+    "accessor": [
+      "zeroTrust",
+      "access",
+      "userPopulations",
+      "users"
+    ],
+    "method": "update",
+    "httpMethod": "PATCH",
+    "path": "/accounts/{account_id}/access/user_populations/{user_population_id}/users/{user_id}",
+    "requestType": "AccessScimPatchRequest",
+    "responseType": "AccessScimUser",
+    "requiredRequestProperties": [
+      "Operations",
+      "account_id",
+      "user_id",
+      "user_population_id"
     ]
   },
   "access-user-populations-update-user-population": {
@@ -5215,12 +5325,12 @@
     ],
     "method": "getUrl",
     "httpMethod": "GET",
-    "path": "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/url/{provider}",
+    "path": "/accounts/{account_id}/ai-gateway/gateways/{gateway_id}/url/{ai-gateway-provider}",
     "requestType": "GetUrlGatewaysRequest",
     "requiredRequestProperties": [
       "account_id",
-      "gateway_id",
-      "provider"
+      "ai-gateway-provider",
+      "gateway_id"
     ]
   },
   "aig-config-list-account-provider": {
@@ -9278,109 +9388,6 @@
       "account_id"
     ]
   },
-  "cloudforce-one-priority-delete": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "priority"
-    ],
-    "method": "delete",
-    "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/priority/{priority_id}",
-    "requestType": "DeletePriorityRequest",
-    "responseType": "CloudforceOneRequestsApiResponseCommon",
-    "requiredRequestProperties": [
-      "account_id",
-      "priority_id"
-    ]
-  },
-  "cloudforce-one-priority-get": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "priority"
-    ],
-    "method": "get",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/priority/{priority_id}",
-    "requestType": "GetPriorityRequest",
-    "responseType": "CloudforceOneRequestsRequestItem",
-    "requiredRequestProperties": [
-      "account_id",
-      "priority_id"
-    ]
-  },
-  "cloudforce-one-priority-list": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "priority"
-    ],
-    "method": "list",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/priority",
-    "requestType": "CloudforceOneRequestsPriorityList",
-    "responseType": "ListPriorityResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "page",
-      "per_page"
-    ],
-    "numericRequestProperties": [
-      "page",
-      "per_page"
-    ]
-  },
-  "cloudforce-one-priority-new": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "priority"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/priority/new",
-    "requestType": "CreatePriorityRequest",
-    "responseType": "CloudforceOneRequestsPriorityItem",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body"
-    ]
-  },
-  "cloudforce-one-priority-quota": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "priority"
-    ],
-    "method": "quota",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/priority/quota",
-    "requestType": "QuotaPriorityRequest",
-    "responseType": "CloudforceOneRequestsQuota",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "cloudforce-one-priority-update": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "priority"
-    ],
-    "method": "update",
-    "httpMethod": "PUT",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/priority/{priority_id}",
-    "requestType": "UpdatePriorityRequest",
-    "responseType": "CloudforceOneRequestsRequestItem",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "priority_id"
-    ]
-  },
   "cloudforce-one-remove-account-exemptions": {
     "accessor": [
       "cloudforceOne",
@@ -9396,296 +9403,6 @@
     "requiredRequestProperties": [
       "account_id",
       "body"
-    ]
-  },
-  "cloudforce-one-request-asset-delete": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "assets"
-    ],
-    "method": "delete",
-    "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/asset/{asset_id}",
-    "requestType": "DeleteAssetsRequest",
-    "responseType": "CloudforceOneRequestsApiResponseCommon",
-    "requiredRequestProperties": [
-      "account_id",
-      "asset_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-asset-get": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "assets"
-    ],
-    "method": "get",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/asset/{asset_id}",
-    "requestType": "GetAssetsRequest",
-    "responseType": "GetAssetsResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "asset_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-asset-list": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "assets"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/asset",
-    "requestType": "CloudforceOneRequestsRequestAssetList",
-    "responseType": "CreateAssetsResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "page",
-      "per_page",
-      "request_id"
-    ],
-    "numericRequestProperties": [
-      "page",
-      "per_page"
-    ]
-  },
-  "cloudforce-one-request-asset-new": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "assetNew"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/asset/new",
-    "requestType": "CreateAssetNewRequest",
-    "responseType": "CloudforceOneRequestsRequestAssetItem",
-    "requiredRequestProperties": [
-      "account_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-asset-update": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "assets"
-    ],
-    "method": "update",
-    "httpMethod": "PUT",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/asset/{asset_id}",
-    "requestType": "CloudforceOneRequestsRequestAssetEdit",
-    "responseType": "CloudforceOneRequestsRequestAssetItem",
-    "requiredRequestProperties": [
-      "account_id",
-      "asset_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-constants": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "constants",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/constants",
-    "requestType": "ConstantsRequestsRequest",
-    "responseType": "CloudforceOneRequestsRequestConstants",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "cloudforce-one-request-delete": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "delete",
-    "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}",
-    "requestType": "DeleteRequestsRequest",
-    "responseType": "CloudforceOneRequestsApiResponseCommon",
-    "requiredRequestProperties": [
-      "account_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-get": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "cloudforceOneRequestGet",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}",
-    "requestType": "CloudforceOneRequestGetRequestsRequest",
-    "responseType": "CloudforceOneRequestsRequestItem",
-    "requiredRequestProperties": [
-      "account_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-list": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "cloudforceOneRequestList",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests",
-    "requestType": "CloudforceOneRequestsRequestList",
-    "responseType": "CloudforceOneRequestListRequestsResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "page",
-      "per_page"
-    ],
-    "numericRequestProperties": [
-      "page",
-      "per_page"
-    ]
-  },
-  "cloudforce-one-request-message-delete": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "message"
-    ],
-    "method": "delete",
-    "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/message/{message_id}",
-    "requestType": "DeleteMessageRequest",
-    "responseType": "CloudforceOneRequestsApiResponseCommon",
-    "requiredRequestProperties": [
-      "account_id",
-      "message_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-message-list": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "message"
-    ],
-    "method": "get",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/message",
-    "requestType": "CloudforceOneRequestsRequestMessageList",
-    "responseType": "GetMessageResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "page",
-      "per_page",
-      "request_id"
-    ],
-    "numericRequestProperties": [
-      "page",
-      "per_page"
-    ]
-  },
-  "cloudforce-one-request-message-new": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "message"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/message/new",
-    "requestType": "CreateMessageRequest",
-    "responseType": "CloudforceOneRequestsRequestMessageItem",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-message-update": {
-    "accessor": [
-      "cloudforceOne",
-      "requests",
-      "message"
-    ],
-    "method": "update",
-    "httpMethod": "PUT",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}/message/{message_id}",
-    "requestType": "UpdateMessageRequest",
-    "responseType": "CloudforceOneRequestsRequestMessageItem",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "message_id",
-      "request_id"
-    ]
-  },
-  "cloudforce-one-request-new": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "cloudforceOneRequestNew",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/new",
-    "requestType": "CloudforceOneRequestNewRequestsRequest",
-    "responseType": "CloudforceOneRequestsRequestItem",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body"
-    ]
-  },
-  "cloudforce-one-request-quota": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "quota",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/quota",
-    "requestType": "QuotaRequestsRequest",
-    "responseType": "CloudforceOneRequestsQuota",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "cloudforce-one-request-types": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "types",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/types",
-    "requestType": "TypesRequestsRequest",
-    "responseType": "TypesRequestsResponse",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "cloudforce-one-request-update": {
-    "accessor": [
-      "cloudforceOne",
-      "requests"
-    ],
-    "method": "cloudforceOneRequestUpdate",
-    "httpMethod": "PUT",
-    "path": "/accounts/{account_id}/cloudforce-one/requests/{request_id}",
-    "requestType": "CloudforceOneRequestUpdateRequestsRequest",
-    "responseType": "CloudforceOneRequestsRequestItem",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "request_id"
     ]
   },
   "cloudforce-one-resubmit-email-rule-approval": {
@@ -11146,6 +10863,916 @@
       "zone_id"
     ]
   },
+  "cws-batch-tenant-nodes": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures",
+      "nodes"
+    ],
+    "method": "batch",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes/batch",
+    "requestType": "CwsBatchTenantNodesInputBody",
+    "responseType": "CwsTenantNodeBatchResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "creates",
+      "deletes",
+      "structure_id",
+      "updates"
+    ]
+  },
+  "cws-create-basic-auth-credential": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials",
+    "requestType": "CwsCreateBasicAuthCredentialInputBody",
+    "responseType": "CwsBasicAuthCredential",
+    "requiredRequestProperties": [
+      "account_id",
+      "username"
+    ]
+  },
+  "cws-create-basic-auth-secret": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials",
+      "secrets"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials/{credential_id}/secrets",
+    "requestType": "CwsCreateBasicAuthSecretBody",
+    "responseType": "CwsBasicAuthSecretResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "credential_id",
+      "password"
+    ]
+  },
+  "cws-create-deployment": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "deployments"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/deployments",
+    "requestType": "CwsCreateDeploymentInputBody",
+    "responseType": "CwsDeployment",
+    "requiredRequestProperties": [
+      "account_id",
+      "basic_auth_credential_ids",
+      "default_mode",
+      "name",
+      "policy_set_ids"
+    ]
+  },
+  "cws-create-domain-acl": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "domainAcls"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/domain-acls",
+    "requestType": "CwsCreateDomainAclInputBody",
+    "responseType": "CwsDomainAcl",
+    "requiredRequestProperties": [
+      "account_id",
+      "default_action",
+      "entries",
+      "name"
+    ]
+  },
+  "cws-create-policy": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policies"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/policies",
+    "requestType": "CwsCreatePolicyInputBody",
+    "responseType": "CwsPolicy",
+    "requiredRequestProperties": [
+      "account_id",
+      "entrypoint",
+      "name",
+      "rego_source"
+    ]
+  },
+  "cws-create-policy-set": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policySets"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/policy-sets",
+    "requestType": "CwsCreatePolicySetInputBody",
+    "responseType": "CwsPolicySet",
+    "requiredRequestProperties": [
+      "account_id",
+      "name",
+      "policies"
+    ]
+  },
+  "cws-create-rego-metadata": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoMetadata"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/rego-metadata",
+    "requestType": "CreateRegoMetadataRequest",
+    "responseType": "CwsRegoMetadata",
+    "requestBodyProperty": "body",
+    "requiredRequestProperties": [
+      "account_id",
+      "body"
+    ]
+  },
+  "cws-create-rego-module": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoModules"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/rego-modules",
+    "requestType": "CwsCreateRegoModuleInputBody",
+    "responseType": "CwsRegoModule",
+    "requiredRequestProperties": [
+      "account_id",
+      "name",
+      "rego_source"
+    ]
+  },
+  "cws-create-tenant-node": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures",
+      "nodes"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes",
+    "requestType": "CreateNodesRequest",
+    "responseType": "CwsTenantStructureNode",
+    "requestBodyProperty": "body",
+    "requiredRequestProperties": [
+      "account_id",
+      "body",
+      "structure_id"
+    ]
+  },
+  "cws-create-tenant-structure": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/tenant-structures",
+    "requestType": "CwsCreateTenantStructureInputBody",
+    "responseType": "CwsTenantStructure",
+    "requiredRequestProperties": [
+      "account_id",
+      "application",
+      "name"
+    ]
+  },
+  "cws-create-workload": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "workloads"
+    ],
+    "method": "create",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/cws/workloads",
+    "requestType": "CwsCreateWorkloadInputBody",
+    "responseType": "CwsWorkload",
+    "requiredRequestProperties": [
+      "account_id",
+      "filter",
+      "name"
+    ]
+  },
+  "cws-delete-basic-auth-credential": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials/{credential_id}",
+    "requestType": "DeleteBasicAuthCredentialsRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "credential_id"
+    ]
+  },
+  "cws-delete-basic-auth-secret": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials",
+      "secrets"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials/{credential_id}/secrets/{secret_id}",
+    "requestType": "DeleteSecretsRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "credential_id",
+      "secret_id"
+    ]
+  },
+  "cws-delete-deployment": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "deployments"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/deployments/{deployment_id}",
+    "requestType": "DeleteDeploymentsRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "deployment_id"
+    ]
+  },
+  "cws-delete-domain-acl": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "domainAcls"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/domain-acls/{domain_acl_id}",
+    "requestType": "DeleteDomainAclsRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "domain_acl_id"
+    ]
+  },
+  "cws-delete-policy": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policies"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/policies/{policy_id}",
+    "requestType": "DeletePoliciesRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "policy_id"
+    ]
+  },
+  "cws-delete-policy-set": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policySets"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/policy-sets/{policy_set_id}",
+    "requestType": "DeletePolicySetsRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "policy_set_id"
+    ]
+  },
+  "cws-delete-rego-metadata": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoMetadata"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/rego-metadata/{rego_metadata_id}",
+    "requestType": "DeleteRegoMetadataRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "rego_metadata_id"
+    ]
+  },
+  "cws-delete-rego-module": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoModules"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/rego-modules/{rego_module_id}",
+    "requestType": "DeleteRegoModulesRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "rego_module_id"
+    ]
+  },
+  "cws-delete-tenant-node": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures",
+      "nodes"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes/{node_id}",
+    "requestType": "DeleteNodesRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "node_id",
+      "structure_id"
+    ]
+  },
+  "cws-delete-tenant-structure": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}",
+    "requestType": "DeleteTenantStructuresRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "structure_id"
+    ]
+  },
+  "cws-delete-workload": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "workloads"
+    ],
+    "method": "delete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/cws/workloads/{workload_id}",
+    "requestType": "DeleteWorkloadsRequest",
+    "responseType": "CwsDeletedResult",
+    "requiredRequestProperties": [
+      "account_id",
+      "workload_id"
+    ]
+  },
+  "cws-get-basic-auth-credential": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials/{credential_id}",
+    "requestType": "GetBasicAuthCredentialsRequest",
+    "responseType": "CwsBasicAuthCredential",
+    "requiredRequestProperties": [
+      "account_id",
+      "credential_id"
+    ]
+  },
+  "cws-get-basic-auth-secret": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials",
+      "secrets"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials/{credential_id}/secrets/{secret_id}",
+    "requestType": "GetSecretsRequest",
+    "responseType": "CwsBasicAuthSecretResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "credential_id",
+      "secret_id"
+    ]
+  },
+  "cws-get-deployment": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "deployments"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/deployments/{deployment_id}",
+    "requestType": "GetDeploymentsRequest",
+    "responseType": "CwsDeployment",
+    "requiredRequestProperties": [
+      "account_id",
+      "deployment_id"
+    ]
+  },
+  "cws-get-domain-acl": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "domainAcls"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/domain-acls/{domain_acl_id}",
+    "requestType": "GetDomainAclsRequest",
+    "responseType": "CwsDomainAcl",
+    "requiredRequestProperties": [
+      "account_id",
+      "domain_acl_id"
+    ]
+  },
+  "cws-get-policy": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policies"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/policies/{policy_id}",
+    "requestType": "GetPoliciesRequest",
+    "responseType": "CwsPolicy",
+    "requiredRequestProperties": [
+      "account_id",
+      "policy_id"
+    ]
+  },
+  "cws-get-policy-set": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policySets"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/policy-sets/{policy_set_id}",
+    "requestType": "GetPolicySetsRequest",
+    "responseType": "CwsPolicySet",
+    "requiredRequestProperties": [
+      "account_id",
+      "policy_set_id"
+    ]
+  },
+  "cws-get-rego-metadata": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoMetadata"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/rego-metadata/{rego_metadata_id}",
+    "requestType": "GetRegoMetadataRequest",
+    "responseType": "CwsRegoMetadata",
+    "requiredRequestProperties": [
+      "account_id",
+      "rego_metadata_id"
+    ]
+  },
+  "cws-get-rego-module": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoModules"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/rego-modules/{rego_module_id}",
+    "requestType": "GetRegoModulesRequest",
+    "responseType": "CwsRegoModule",
+    "requiredRequestProperties": [
+      "account_id",
+      "rego_module_id"
+    ]
+  },
+  "cws-get-tenant-node": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures",
+      "nodes"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes/{node_id}",
+    "requestType": "GetNodesRequest",
+    "responseType": "CwsTenantStructureNode",
+    "requiredRequestProperties": [
+      "account_id",
+      "node_id",
+      "structure_id"
+    ]
+  },
+  "cws-get-tenant-structure": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}",
+    "requestType": "GetTenantStructuresRequest",
+    "responseType": "CwsTenantStructure",
+    "requiredRequestProperties": [
+      "account_id",
+      "structure_id"
+    ]
+  },
+  "cws-get-workload": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "workloads"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/workloads/{workload_id}",
+    "requestType": "GetWorkloadsRequest",
+    "responseType": "CwsWorkload",
+    "requiredRequestProperties": [
+      "account_id",
+      "workload_id"
+    ]
+  },
+  "cws-list-basic-auth-credentials": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials",
+    "requestType": "ListBasicAuthCredentialsRequest",
+    "responseType": "ListBasicAuthCredentialsResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-basic-auth-secrets": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "basicAuthCredentials",
+      "secrets"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/basic-auth-credentials/{credential_id}/secrets",
+    "requestType": "ListSecretsRequest",
+    "responseType": "ListSecretsResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "credential_id"
+    ]
+  },
+  "cws-list-deployments": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "deployments"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/deployments",
+    "requestType": "ListDeploymentsRequest",
+    "responseType": "ListDeploymentsResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-domain-acls": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "domainAcls"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/domain-acls",
+    "requestType": "ListDomainAclsRequest",
+    "responseType": "ListDomainAclsResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-policies": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policies"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/policies",
+    "requestType": "ListPoliciesRequest",
+    "responseType": "ListPoliciesResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-policy-sets": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policySets"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/policy-sets",
+    "requestType": "ListPolicySetsRequest",
+    "responseType": "ListPolicySetsResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-rego-metadata": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoMetadata"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/rego-metadata",
+    "requestType": "ListRegoMetadataRequest",
+    "responseType": "ListRegoMetadataResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-rego-modules": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoModules"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/rego-modules",
+    "requestType": "ListRegoModulesRequest",
+    "responseType": "ListRegoModulesResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-tenant-nodes": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures",
+      "nodes"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes",
+    "requestType": "ListNodesRequest",
+    "responseType": "ListNodesResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "structure_id"
+    ]
+  },
+  "cws-list-tenant-structures": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/tenant-structures",
+    "requestType": "ListTenantStructuresRequest",
+    "responseType": "ListTenantStructuresResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-list-workloads": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "workloads"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cws/workloads",
+    "requestType": "ListWorkloadsRequest",
+    "responseType": "ListWorkloadsResponse",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
+  "cws-update-deployment": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "deployments"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/deployments/{deployment_id}",
+    "requestType": "CwsUpdateDeploymentInputBody",
+    "responseType": "CwsDeployment",
+    "requiredRequestProperties": [
+      "account_id",
+      "basic_auth_credential_ids",
+      "default_mode",
+      "deployment_id",
+      "name",
+      "policy_set_ids"
+    ]
+  },
+  "cws-update-domain-acl": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "domainAcls"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/domain-acls/{domain_acl_id}",
+    "requestType": "CwsUpdateDomainAclInputBody",
+    "responseType": "CwsDomainAcl",
+    "requiredRequestProperties": [
+      "account_id",
+      "default_action",
+      "domain_acl_id",
+      "entries",
+      "name"
+    ]
+  },
+  "cws-update-policy": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policies"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/policies/{policy_id}",
+    "requestType": "CwsUpdatePolicyInputBody",
+    "responseType": "CwsPolicy",
+    "requiredRequestProperties": [
+      "account_id",
+      "entrypoint",
+      "name",
+      "policy_id",
+      "rego_source"
+    ]
+  },
+  "cws-update-policy-set": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "policySets"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/policy-sets/{policy_set_id}",
+    "requestType": "CwsUpdatePolicySetInputBody",
+    "responseType": "CwsPolicySet",
+    "requiredRequestProperties": [
+      "account_id",
+      "name",
+      "policies",
+      "policy_set_id"
+    ]
+  },
+  "cws-update-rego-metadata": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoMetadata"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/rego-metadata/{rego_metadata_id}",
+    "requestType": "UpdateRegoMetadataRequest",
+    "responseType": "CwsRegoMetadata",
+    "requestBodyProperty": "body",
+    "requiredRequestProperties": [
+      "account_id",
+      "body",
+      "rego_metadata_id"
+    ]
+  },
+  "cws-update-rego-module": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "regoModules"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/rego-modules/{rego_module_id}",
+    "requestType": "CwsUpdateRegoModuleInputBody",
+    "responseType": "CwsRegoModule",
+    "requiredRequestProperties": [
+      "account_id",
+      "name",
+      "rego_module_id",
+      "rego_source"
+    ]
+  },
+  "cws-update-tenant-node": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures",
+      "nodes"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}/nodes/{node_id}",
+    "requestType": "UpdateNodesRequest",
+    "responseType": "CwsTenantStructureNode",
+    "requestBodyProperty": "body",
+    "requiredRequestProperties": [
+      "account_id",
+      "body",
+      "node_id",
+      "structure_id"
+    ]
+  },
+  "cws-update-tenant-structure": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "tenantStructures"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/tenant-structures/{structure_id}",
+    "requestType": "CwsUpdateTenantStructureInputBody",
+    "responseType": "CwsTenantStructure",
+    "requiredRequestProperties": [
+      "account_id",
+      "application",
+      "name",
+      "structure_id"
+    ]
+  },
+  "cws-update-workload": {
+    "accessor": [
+      "zeroTrust",
+      "cws",
+      "workloads"
+    ],
+    "method": "update",
+    "httpMethod": "PUT",
+    "path": "/accounts/{account_id}/cws/workloads/{workload_id}",
+    "requestType": "CwsUpdateWorkloadInputBody",
+    "responseType": "CwsWorkload",
+    "requiredRequestProperties": [
+      "account_id",
+      "filter",
+      "name",
+      "workload_id"
+    ]
+  },
   "d1-create-database": {
     "accessor": [
       "d1"
@@ -11257,6 +11884,20 @@
     "path": "/accounts/{account_id}/d1/database/{database_id}/time_travel/restore",
     "requestType": "RestoreTimeTravelRequest",
     "responseType": "D1TimeTravelRestoreResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "database_id"
+    ]
+  },
+  "d1-undelete-database": {
+    "accessor": [
+      "d1"
+    ],
+    "method": "undelete",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/d1/database/{database_id}/undelete",
+    "requestType": "UndeleteD1Request",
+    "responseType": "D1DatabaseDetailsResponse",
     "requiredRequestProperties": [
       "account_id",
       "database_id"
@@ -11665,13 +12306,12 @@
       "advancedTcpProtection",
       "configs",
       "allowlist",
-      "delete",
-      "allowlist"
+      "prefix"
     ],
-    "method": "prefix",
+    "method": "delete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/allowlist/{prefix_id}",
-    "requestType": "PrefixAllowlistRequest",
+    "requestType": "DeletePrefixRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
@@ -11683,14 +12323,12 @@
       "magicTransit",
       "advancedTcpProtection",
       "configs",
-      "allowlist",
-      "delete",
-      "for"
+      "allowlist"
     ],
-    "method": "account",
+    "method": "bulkDelete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/allowlist",
-    "requestType": "AccountForRequest",
+    "requestType": "BulkDeleteAllowlistRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id"
@@ -11749,14 +12387,12 @@
       "configs",
       "dns",
       "protection",
-      "rules",
-      "delete",
-      "protection"
+      "rules"
     ],
-    "method": "rule",
+    "method": "delete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_dns_protection/configs/dns_protection/rules/{rule_id}",
-    "requestType": "RuleProtectionRequest",
+    "requestType": "DeleteRulesRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
@@ -11770,14 +12406,12 @@
       "configs",
       "dns",
       "protection",
-      "rules",
-      "delete",
-      "for"
+      "rules"
     ],
-    "method": "account",
+    "method": "bulkDelete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_dns_protection/configs/dns_protection/rules",
-    "requestType": "AccountForRequest",
+    "requestType": "BulkDeleteRulesRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id"
@@ -11857,6 +12491,22 @@
       "prefix_id"
     ]
   },
+  "deletePrefixesForAccount": {
+    "accessor": [
+      "magicTransit",
+      "advancedTcpProtection",
+      "configs",
+      "prefixes"
+    ],
+    "method": "bulkDelete",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/prefixes",
+    "requestType": "BulkDeletePrefixesRequest",
+    "responseType": "DosApiResponseCommon",
+    "requiredRequestProperties": [
+      "account_id"
+    ]
+  },
   "deleteRepoConnection": {
     "accessor": [
       "builds",
@@ -11894,14 +12544,12 @@
       "configs",
       "syn",
       "protection",
-      "filters",
-      "delete",
-      "protection"
+      "filters"
     ],
-    "method": "filter",
+    "method": "delete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/syn_protection/filters/{filter_id}",
-    "requestType": "FilterProtectionRequest",
+    "requestType": "DeleteFiltersRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
@@ -11915,14 +12563,12 @@
       "configs",
       "syn",
       "protection",
-      "filters",
-      "delete",
-      "for"
+      "filters"
     ],
-    "method": "account",
+    "method": "bulkDelete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/syn_protection/filters",
-    "requestType": "AccountForRequest",
+    "requestType": "BulkDeleteFiltersRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id"
@@ -11935,14 +12581,12 @@
       "configs",
       "syn",
       "protection",
-      "rules",
-      "delete",
-      "protection"
+      "rules"
     ],
-    "method": "rule",
+    "method": "delete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/syn_protection/rules/{rule_id}",
-    "requestType": "RuleProtectionRequest",
+    "requestType": "DeleteRulesRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
@@ -11956,14 +12600,12 @@
       "configs",
       "syn",
       "protection",
-      "rules",
-      "delete",
-      "for"
+      "rules"
     ],
-    "method": "account",
+    "method": "bulkDelete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/syn_protection/rules",
-    "requestType": "AccountForRequest",
+    "requestType": "BulkDeleteRulesRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id"
@@ -11977,14 +12619,12 @@
       "tcp",
       "flow",
       "protection",
-      "filters",
-      "delete",
-      "protection"
+      "filters"
     ],
-    "method": "filter",
+    "method": "delete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters/{filter_id}",
-    "requestType": "FilterProtectionRequest",
+    "requestType": "DeleteFiltersRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
@@ -11999,14 +12639,12 @@
       "tcp",
       "flow",
       "protection",
-      "filters",
-      "delete",
-      "for"
+      "filters"
     ],
-    "method": "account",
+    "method": "bulkDelete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/filters",
-    "requestType": "AccountForRequest",
+    "requestType": "BulkDeleteFiltersRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id"
@@ -12020,14 +12658,12 @@
       "tcp",
       "flow",
       "protection",
-      "rules",
-      "delete",
-      "protection"
+      "rules"
     ],
-    "method": "rule",
+    "method": "delete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules/{rule_id}",
-    "requestType": "RuleProtectionRequest",
+    "requestType": "DeleteRulesRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
@@ -12042,14 +12678,12 @@
       "tcp",
       "flow",
       "protection",
-      "rules",
-      "delete",
-      "for"
+      "rules"
     ],
-    "method": "account",
+    "method": "bulkDelete",
     "httpMethod": "DELETE",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/tcp_flow_protection/rules",
-    "requestType": "AccountForRequest",
+    "requestType": "BulkDeleteRulesRequest",
     "responseType": "DosApiResponseCommon",
     "requiredRequestProperties": [
       "account_id"
@@ -21002,12 +21636,13 @@
       "magicTransit",
       "advancedTcpProtection",
       "configs",
-      "allowlist"
+      "allowlist",
+      "prefix"
     ],
     "method": "get",
     "httpMethod": "GET",
     "path": "/accounts/{account_id}/magic/advanced_tcp_protection/configs/allowlist/{prefix_id}",
-    "requestType": "GetAllowlistRequest",
+    "requestType": "GetPrefixRequest",
     "responseType": "DosInfraPrefix",
     "requiredRequestProperties": [
       "account_id",
@@ -21760,6 +22395,22 @@
       "project_type"
     ]
   },
+  "get_DashboardRequestTypesList": {
+    "accessor": [
+      "cloudforceOne",
+      "requests",
+      "types"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/types",
+    "requestType": "ListTypesRequest",
+    "responseType": "ListTypesResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "project_type"
+    ]
+  },
   "get_DatasetList": {
     "accessor": [
       "cloudforceOne",
@@ -22458,6 +23109,22 @@
       "account_id"
     ]
   },
+  "get_RequestConstants": {
+    "accessor": [
+      "cloudforceOne",
+      "requests",
+      "constants"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/constants",
+    "requestType": "GetConstantsRequest",
+    "responseType": "GetConstantsResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "project_type"
+    ]
+  },
   "get_RequestList": {
     "accessor": [
       "cloudforceOne",
@@ -22468,6 +23135,21 @@
     "path": "/accounts/{account_id}/cloudforce-one/v2/requests/{project_type}",
     "requestType": "GetRequestListRequestsRequest",
     "responseType": "GetRequestListRequestsResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "project_type"
+    ]
+  },
+  "get_RequestQuota": {
+    "accessor": [
+      "cloudforceOne",
+      "requests",
+      "quota"
+    ],
+    "method": "get",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cloudforce-one/v2/requests/{project_type}/quota",
+    "requestType": "GetQuotaRequest",
     "requiredRequestProperties": [
       "account_id",
       "project_type"
@@ -23450,6 +24132,40 @@
       "ip_address"
     ]
   },
+  "ip-address-management-address-maps-add-multiple-ips-to-an-address-map": {
+    "accessor": [
+      "addressing",
+      "addressMaps",
+      "ips"
+    ],
+    "method": "updateBulk",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/addressing/address_maps/{address_map_id}/ips",
+    "requestType": "UpdateBulkIpsRequest",
+    "responseType": "AddressingApiResponseCollection",
+    "requiredRequestProperties": [
+      "account_id",
+      "address_map_id",
+      "ips"
+    ]
+  },
+  "ip-address-management-address-maps-add-multiple-zones-to-an-address-map": {
+    "accessor": [
+      "addressing",
+      "addressMaps",
+      "zones"
+    ],
+    "method": "updateBulk",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/addressing/address_maps/{address_map_id}/zones",
+    "requestType": "UpdateBulkZonesRequest",
+    "responseType": "AddressingApiResponseCollection",
+    "requiredRequestProperties": [
+      "account_id",
+      "address_map_id",
+      "zones"
+    ]
+  },
   "ip-address-management-address-maps-address-map-details": {
     "accessor": [
       "addressing",
@@ -23557,6 +24273,40 @@
       "account_id",
       "address_map_id",
       "ip_address"
+    ]
+  },
+  "ip-address-management-address-maps-remove-multiple-ips-from-an-address-map": {
+    "accessor": [
+      "addressing",
+      "addressMaps",
+      "ips"
+    ],
+    "method": "deleteBulk",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/addressing/address_maps/{address_map_id}/ips",
+    "requestType": "DeleteBulkIpsRequest",
+    "responseType": "AddressingApiResponseCollection",
+    "requiredRequestProperties": [
+      "account_id",
+      "address_map_id",
+      "ips"
+    ]
+  },
+  "ip-address-management-address-maps-remove-multiple-zones-from-an-address-map": {
+    "accessor": [
+      "addressing",
+      "addressMaps",
+      "zones"
+    ],
+    "method": "deleteBulk",
+    "httpMethod": "DELETE",
+    "path": "/accounts/{account_id}/addressing/address_maps/{address_map_id}/zones",
+    "requestType": "DeleteBulkZonesRequest",
+    "responseType": "AddressingApiResponseCollection",
+    "requiredRequestProperties": [
+      "account_id",
+      "address_map_id",
+      "zones"
     ]
   },
   "ip-address-management-address-maps-update-address-map": {
@@ -23786,6 +24536,20 @@
     "requiredRequestProperties": [
       "account_id",
       "prefix_id"
+    ]
+  },
+  "ip-address-management-prefixes-list-loa-documents": {
+    "accessor": [
+      "addressing",
+      "loaDocuments"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/addressing/loa_documents",
+    "requestType": "ListLoaDocumentsRequest",
+    "responseType": "ListLoaDocumentsResponse",
+    "requiredRequestProperties": [
+      "account_id"
     ]
   },
   "ip-address-management-prefixes-list-prefixes": {
@@ -25478,7 +26242,7 @@
     "path": "/user/load_balancers/pools",
     "responseType": "PoolsPoolsResponse",
     "requiredRequestProperties": [
-      "__@iterator@7066",
+      "__@iterator@7010",
       "anchor",
       "at",
       "big",
@@ -25665,6 +26429,21 @@
       "bucket",
       "end",
       "start"
+    ]
+  },
+  "lookupResourceLibraryApplications": {
+    "accessor": [
+      "accounts",
+      "applications"
+    ],
+    "method": "lookup",
+    "httpMethod": "POST",
+    "path": "/accounts/{account_id}/resource-library/applications/lookup",
+    "requestType": "AlexandriaLookupApplicationsRequest",
+    "responseType": "LookupApplicationsResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "lookup"
     ]
   },
   "m-tls-certificate-management-delete-m-tls-certificate": {
@@ -34048,19 +34827,6 @@
       "dimension"
     ]
   },
-  "radar-get-ai-bots-summary-by-user-agent": {
-    "accessor": [
-      "radar",
-      "ai",
-      "bots",
-      "summary"
-    ],
-    "method": "userAgent",
-    "httpMethod": "GET",
-    "path": "/radar/ai/bots/summary/user_agent",
-    "requestType": "UserAgentSummaryRequest",
-    "responseType": "UserAgentSummaryResponse"
-  },
   "radar-get-ai-bots-timeseries": {
     "accessor": [
       "radar",
@@ -34088,18 +34854,6 @@
       "dimension"
     ]
   },
-  "radar-get-ai-bots-timeseries-group-by-user-agent": {
-    "accessor": [
-      "radar",
-      "ai",
-      "timeseriesGroups"
-    ],
-    "method": "userAgent",
-    "httpMethod": "GET",
-    "path": "/radar/ai/bots/timeseries_groups/user_agent",
-    "requestType": "UserAgentTimeseriesGroupsRequest",
-    "responseType": "UserAgentTimeseriesGroupsResponse"
-  },
   "radar-get-ai-inference-summary": {
     "accessor": [
       "radar",
@@ -34115,32 +34869,6 @@
       "dimension"
     ]
   },
-  "radar-get-ai-inference-summary-by-model": {
-    "accessor": [
-      "radar",
-      "ai",
-      "inference",
-      "summary"
-    ],
-    "method": "model",
-    "httpMethod": "GET",
-    "path": "/radar/ai/inference/summary/model",
-    "requestType": "ModelSummaryRequest",
-    "responseType": "ModelSummaryResponse"
-  },
-  "radar-get-ai-inference-summary-by-task": {
-    "accessor": [
-      "radar",
-      "ai",
-      "inference",
-      "summary"
-    ],
-    "method": "task",
-    "httpMethod": "GET",
-    "path": "/radar/ai/inference/summary/task",
-    "requestType": "TaskSummaryRequest",
-    "responseType": "TaskSummaryResponse"
-  },
   "radar-get-ai-inference-timeseries-group": {
     "accessor": [
       "radar",
@@ -34155,34 +34883,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-ai-inference-timeseries-group-by-model": {
-    "accessor": [
-      "radar",
-      "ai",
-      "inference",
-      "timeseriesGroups",
-      "summary"
-    ],
-    "method": "model",
-    "httpMethod": "GET",
-    "path": "/radar/ai/inference/timeseries_groups/model",
-    "requestType": "ModelSummaryRequest",
-    "responseType": "ModelSummaryResponse"
-  },
-  "radar-get-ai-inference-timeseries-group-by-task": {
-    "accessor": [
-      "radar",
-      "ai",
-      "inference",
-      "timeseriesGroups",
-      "summary"
-    ],
-    "method": "task",
-    "httpMethod": "GET",
-    "path": "/radar/ai/inference/timeseries_groups/task",
-    "requestType": "TaskSummaryRequest",
-    "responseType": "TaskSummaryResponse"
   },
   "radar-get-ai-markdown-for-agents-summary": {
     "accessor": [
@@ -34314,97 +35014,6 @@
       "dimension"
     ]
   },
-  "radar-get-attacks-layer3-summary-by-bitrate": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "bitrate",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/bitrate",
-    "requestType": "BitrateSummaryRequest",
-    "responseType": "BitrateSummaryResponse"
-  },
-  "radar-get-attacks-layer3-summary-by-duration": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "duration",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/duration",
-    "requestType": "DurationSummaryRequest",
-    "responseType": "DurationSummaryResponse"
-  },
-  "radar-get-attacks-layer3-summary-by-industry": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "industry",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/industry",
-    "requestType": "IndustrySummaryRequest",
-    "responseType": "IndustrySummaryResponse"
-  },
-  "radar-get-attacks-layer3-summary-by-ip-version": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/ip_version",
-    "requestType": "IpVersionSummaryRequest",
-    "responseType": "IpVersionSummaryResponse"
-  },
-  "radar-get-attacks-layer3-summary-by-protocol": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "protocol",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/protocol",
-    "requestType": "ProtocolSummaryRequest",
-    "responseType": "ProtocolSummaryResponse"
-  },
-  "radar-get-attacks-layer3-summary-by-vector": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "vector",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/vector",
-    "requestType": "VectorSummaryRequest",
-    "responseType": "VectorSummaryResponse"
-  },
-  "radar-get-attacks-layer3-summary-by-vertical": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "summary"
-    ],
-    "method": "vertical",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/summary/vertical",
-    "requestType": "VerticalSummaryRequest",
-    "responseType": "VerticalSummaryResponse"
-  },
   "radar-get-attacks-layer3-timeseries-by-bytes": {
     "accessor": [
       "radar",
@@ -34432,97 +35041,6 @@
       "dimension"
     ]
   },
-  "radar-get-attacks-layer3-timeseries-group-by-bitrate": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "bitrate",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/bitrate",
-    "requestType": "BitrateTimeseriesGroupsRequest",
-    "responseType": "BitrateTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer3-timeseries-group-by-duration": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "duration",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/duration",
-    "requestType": "DurationTimeseriesGroupsRequest",
-    "responseType": "DurationTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer3-timeseries-group-by-industry": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "industry",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/industry",
-    "requestType": "IndustryTimeseriesGroupsRequest",
-    "responseType": "IndustryTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer3-timeseries-group-by-ip-version": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/ip_version",
-    "requestType": "IpVersionTimeseriesGroupsRequest",
-    "responseType": "IpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer3-timeseries-group-by-protocol": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "protocol",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/protocol",
-    "requestType": "ProtocolTimeseriesGroupsRequest",
-    "responseType": "ProtocolTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer3-timeseries-group-by-vector": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "vector",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/vector",
-    "requestType": "VectorTimeseriesGroupsRequest",
-    "responseType": "VectorTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer3-timeseries-group-by-vertical": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "timeseriesGroups"
-    ],
-    "method": "vertical",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/timeseries_groups/vertical",
-    "requestType": "VerticalTimeseriesGroupsRequest",
-    "responseType": "VerticalTimeseriesGroupsResponse"
-  },
   "radar-get-attacks-layer3-top-attacks": {
     "accessor": [
       "radar",
@@ -34535,19 +35053,6 @@
     "path": "/radar/attacks/layer3/top/attacks",
     "requestType": "AttacksTopRequest",
     "responseType": "AttacksTopResponse"
-  },
-  "radar-get-attacks-layer3-top-industries": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "top"
-    ],
-    "method": "industry",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/top/industry",
-    "requestType": "IndustryTopRequest",
-    "responseType": "IndustryTopResponse"
   },
   "radar-get-attacks-layer3-top-origin-locations": {
     "accessor": [
@@ -34577,19 +35082,6 @@
     "requestType": "TargetLocationsRequest",
     "responseType": "TargetLocationsResponse"
   },
-  "radar-get-attacks-layer3-top-verticals": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer3",
-      "top"
-    ],
-    "method": "vertical",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer3/top/vertical",
-    "requestType": "VerticalTopRequest",
-    "responseType": "VerticalTopResponse"
-  },
   "radar-get-attacks-layer7-summary": {
     "accessor": [
       "radar",
@@ -34604,97 +35096,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-attacks-layer7-summary-by-http-method": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "httpMethod",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/http_method",
-    "requestType": "HttpMethodSummaryRequest",
-    "responseType": "HttpMethodSummaryResponse"
-  },
-  "radar-get-attacks-layer7-summary-by-http-version": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "httpVersion",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/http_version",
-    "requestType": "HttpVersionSummaryRequest",
-    "responseType": "HttpVersionSummaryResponse"
-  },
-  "radar-get-attacks-layer7-summary-by-industry": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "industry",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/industry",
-    "requestType": "IndustrySummaryRequest",
-    "responseType": "IndustrySummaryResponse"
-  },
-  "radar-get-attacks-layer7-summary-by-ip-version": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/ip_version",
-    "requestType": "IpVersionSummaryRequest",
-    "responseType": "IpVersionSummaryResponse"
-  },
-  "radar-get-attacks-layer7-summary-by-managed-rules": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "managedRules",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/managed_rules",
-    "requestType": "ManagedRulesSummaryRequest",
-    "responseType": "ManagedRulesSummaryResponse"
-  },
-  "radar-get-attacks-layer7-summary-by-mitigation-product": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "mitigationProduct",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/mitigation_product",
-    "requestType": "MitigationProductSummaryRequest",
-    "responseType": "MitigationProductSummaryResponse"
-  },
-  "radar-get-attacks-layer7-summary-by-vertical": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "summary"
-    ],
-    "method": "vertical",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/summary/vertical",
-    "requestType": "VerticalSummaryRequest",
-    "responseType": "VerticalSummaryResponse"
   },
   "radar-get-attacks-layer7-timeseries": {
     "accessor": [
@@ -34723,97 +35124,6 @@
       "dimension"
     ]
   },
-  "radar-get-attacks-layer7-timeseries-group-by-http-method": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "httpMethod",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/http_method",
-    "requestType": "HttpMethodTimeseriesGroupsRequest",
-    "responseType": "HttpMethodTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer7-timeseries-group-by-http-version": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "httpVersion",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/http_version",
-    "requestType": "HttpVersionTimeseriesGroupsRequest",
-    "responseType": "HttpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer7-timeseries-group-by-industry": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "industry",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/industry",
-    "requestType": "IndustryTimeseriesGroupsRequest",
-    "responseType": "IndustryTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer7-timeseries-group-by-ip-version": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/ip_version",
-    "requestType": "IpVersionTimeseriesGroupsRequest",
-    "responseType": "IpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer7-timeseries-group-by-managed-rules": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "managedRules",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/managed_rules",
-    "requestType": "ManagedRulesTimeseriesGroupsRequest",
-    "responseType": "ManagedRulesTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer7-timeseries-group-by-mitigation-product": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "mitigationProduct",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/mitigation_product",
-    "requestType": "MitigationProductTimeseriesGroupsRequest",
-    "responseType": "MitigationProductTimeseriesGroupsResponse"
-  },
-  "radar-get-attacks-layer7-timeseries-group-by-vertical": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "timeseriesGroups"
-    ],
-    "method": "vertical",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/timeseries_groups/vertical",
-    "requestType": "VerticalTimeseriesGroupsRequest",
-    "responseType": "VerticalTimeseriesGroupsResponse"
-  },
   "radar-get-attacks-layer7-top-attacks": {
     "accessor": [
       "radar",
@@ -34826,19 +35136,6 @@
     "path": "/radar/attacks/layer7/top/attacks",
     "requestType": "AttacksTopRequest",
     "responseType": "AttacksTopResponse"
-  },
-  "radar-get-attacks-layer7-top-industries": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "top"
-    ],
-    "method": "industry",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/top/industry",
-    "requestType": "IndustryTopRequest",
-    "responseType": "IndustryTopResponse"
   },
   "radar-get-attacks-layer7-top-origin-as": {
     "accessor": [
@@ -34881,19 +35178,6 @@
     "path": "/radar/attacks/layer7/top/locations/target",
     "requestType": "TargetLocationsRequest",
     "responseType": "TargetLocationsResponse"
-  },
-  "radar-get-attacks-layer7-top-verticals": {
-    "accessor": [
-      "radar",
-      "attacks",
-      "layer7",
-      "top"
-    ],
-    "method": "vertical",
-    "httpMethod": "GET",
-    "path": "/radar/attacks/layer7/top/vertical",
-    "requestType": "VerticalTopRequest",
-    "responseType": "VerticalTopResponse"
   },
   "radar-get-bgp-hijacks-events": {
     "accessor": [
@@ -35351,78 +35635,6 @@
     "requestType": "TimeseriesAs112Request",
     "responseType": "TimeseriesAs112Response"
   },
-  "radar-get-dns-as112-timeseries-by-dnssec": {
-    "accessor": [
-      "radar",
-      "as112",
-      "summary"
-    ],
-    "method": "dnssec",
-    "httpMethod": "GET",
-    "path": "/radar/as112/summary/dnssec",
-    "requestType": "DnssecSummaryRequest",
-    "responseType": "DnssecSummaryResponse"
-  },
-  "radar-get-dns-as112-timeseries-by-edns": {
-    "accessor": [
-      "radar",
-      "as112",
-      "summary"
-    ],
-    "method": "edns",
-    "httpMethod": "GET",
-    "path": "/radar/as112/summary/edns",
-    "requestType": "EdnsSummaryRequest",
-    "responseType": "EdnsSummaryResponse"
-  },
-  "radar-get-dns-as112-timeseries-by-ip-version": {
-    "accessor": [
-      "radar",
-      "as112",
-      "summary"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/as112/summary/ip_version",
-    "requestType": "IpVersionSummaryRequest",
-    "responseType": "IpVersionSummaryResponse"
-  },
-  "radar-get-dns-as112-timeseries-by-protocol": {
-    "accessor": [
-      "radar",
-      "as112",
-      "summary"
-    ],
-    "method": "protocol",
-    "httpMethod": "GET",
-    "path": "/radar/as112/summary/protocol",
-    "requestType": "ProtocolSummaryRequest",
-    "responseType": "ProtocolSummaryResponse"
-  },
-  "radar-get-dns-as112-timeseries-by-query-type": {
-    "accessor": [
-      "radar",
-      "as112",
-      "summary"
-    ],
-    "method": "queryType",
-    "httpMethod": "GET",
-    "path": "/radar/as112/summary/query_type",
-    "requestType": "QueryTypeSummaryRequest",
-    "responseType": "QueryTypeSummaryResponse"
-  },
-  "radar-get-dns-as112-timeseries-by-response-codes": {
-    "accessor": [
-      "radar",
-      "as112",
-      "summary"
-    ],
-    "method": "responseCodes",
-    "httpMethod": "GET",
-    "path": "/radar/as112/summary/response_codes",
-    "requestType": "ResponseCodesSummaryRequest",
-    "responseType": "ResponseCodesSummaryResponse"
-  },
   "radar-get-dns-as112-timeseries-group": {
     "accessor": [
       "radar",
@@ -35436,78 +35648,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-dns-as112-timeseries-group-by-dnssec": {
-    "accessor": [
-      "radar",
-      "as112",
-      "timeseriesGroups"
-    ],
-    "method": "dnssec",
-    "httpMethod": "GET",
-    "path": "/radar/as112/timeseries_groups/dnssec",
-    "requestType": "DnssecTimeseriesGroupsRequest",
-    "responseType": "DnssecTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-as112-timeseries-group-by-edns": {
-    "accessor": [
-      "radar",
-      "as112",
-      "timeseriesGroups"
-    ],
-    "method": "edns",
-    "httpMethod": "GET",
-    "path": "/radar/as112/timeseries_groups/edns",
-    "requestType": "EdnsTimeseriesGroupsRequest",
-    "responseType": "EdnsTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-as112-timeseries-group-by-ip-version": {
-    "accessor": [
-      "radar",
-      "as112",
-      "timeseriesGroups"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/as112/timeseries_groups/ip_version",
-    "requestType": "IpVersionTimeseriesGroupsRequest",
-    "responseType": "IpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-as112-timeseries-group-by-protocol": {
-    "accessor": [
-      "radar",
-      "as112",
-      "timeseriesGroups"
-    ],
-    "method": "protocol",
-    "httpMethod": "GET",
-    "path": "/radar/as112/timeseries_groups/protocol",
-    "requestType": "ProtocolTimeseriesGroupsRequest",
-    "responseType": "ProtocolTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-as112-timeseries-group-by-query-type": {
-    "accessor": [
-      "radar",
-      "as112",
-      "timeseriesGroups"
-    ],
-    "method": "queryType",
-    "httpMethod": "GET",
-    "path": "/radar/as112/timeseries_groups/query_type",
-    "requestType": "QueryTypeTimeseriesGroupsRequest",
-    "responseType": "QueryTypeTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-as112-timeseries-group-by-response-codes": {
-    "accessor": [
-      "radar",
-      "as112",
-      "timeseriesGroups"
-    ],
-    "method": "responseCodes",
-    "httpMethod": "GET",
-    "path": "/radar/as112/timeseries_groups/response_codes",
-    "requestType": "ResponseCodesTimeseriesGroupsRequest",
-    "responseType": "ResponseCodesTimeseriesGroupsResponse"
   },
   "radar-get-dns-as112-top-locations": {
     "accessor": [
@@ -35580,126 +35720,6 @@
       "dimension"
     ]
   },
-  "radar-get-dns-summary-by-cache-hit-status": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "cacheHit",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/cache_hit",
-    "requestType": "CacheHitSummaryRequest",
-    "responseType": "CacheHitSummaryResponse"
-  },
-  "radar-get-dns-summary-by-dnssec": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "dnssec",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/dnssec",
-    "requestType": "DnssecSummaryRequest",
-    "responseType": "DnssecSummaryResponse"
-  },
-  "radar-get-dns-summary-by-dnssec-awareness": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "dnssecAware",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/dnssec_aware",
-    "requestType": "DnssecAwareSummaryRequest",
-    "responseType": "DnssecAwareSummaryResponse"
-  },
-  "radar-get-dns-summary-by-dnssec-e2e-version": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "dnssecE2E",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/dnssec_e2e",
-    "requestType": "DnssecE2ESummaryRequest",
-    "responseType": "DnssecE2ESummaryResponse"
-  },
-  "radar-get-dns-summary-by-ip-version": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/ip_version",
-    "requestType": "IpVersionSummaryRequest",
-    "responseType": "IpVersionSummaryResponse"
-  },
-  "radar-get-dns-summary-by-matching-answer-status": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "matchingAnswer",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/matching_answer",
-    "requestType": "MatchingAnswerSummaryRequest",
-    "responseType": "MatchingAnswerSummaryResponse"
-  },
-  "radar-get-dns-summary-by-protocol": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "protocol",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/protocol",
-    "requestType": "ProtocolSummaryRequest",
-    "responseType": "ProtocolSummaryResponse"
-  },
-  "radar-get-dns-summary-by-query-type": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "queryType",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/query_type",
-    "requestType": "QueryTypeSummaryRequest",
-    "responseType": "QueryTypeSummaryResponse"
-  },
-  "radar-get-dns-summary-by-response-code": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "responseCode",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/response_code",
-    "requestType": "ResponseCodeSummaryRequest",
-    "responseType": "ResponseCodeSummaryResponse"
-  },
-  "radar-get-dns-summary-by-response-ttl": {
-    "accessor": [
-      "radar",
-      "dns",
-      "summary"
-    ],
-    "method": "responseTtl",
-    "httpMethod": "GET",
-    "path": "/radar/dns/summary/response_ttl",
-    "requestType": "ResponseTtlSummaryRequest",
-    "responseType": "ResponseTtlSummaryResponse"
-  },
   "radar-get-dns-timeseries": {
     "accessor": [
       "radar",
@@ -35724,126 +35744,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-dns-timeseries-group-by-cache-hit-status": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "cacheHit",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/cache_hit",
-    "requestType": "CacheHitTimeseriesGroupsRequest",
-    "responseType": "CacheHitTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-dnssec": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "dnssec",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/dnssec",
-    "requestType": "DnssecTimeseriesGroupsRequest",
-    "responseType": "DnssecTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-dnssec-awareness": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "dnssecAware",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/dnssec_aware",
-    "requestType": "DnssecAwareTimeseriesGroupsRequest",
-    "responseType": "DnssecAwareTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-dnssec-e2e-version": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "dnssecE2E",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/dnssec_e2e",
-    "requestType": "DnssecE2ETimeseriesGroupsRequest",
-    "responseType": "DnssecE2ETimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-ip-version": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/ip_version",
-    "requestType": "IpVersionTimeseriesGroupsRequest",
-    "responseType": "IpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-matching-answer-status": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "matchingAnswer",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/matching_answer",
-    "requestType": "MatchingAnswerTimeseriesGroupsRequest",
-    "responseType": "MatchingAnswerTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-protocol": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "protocol",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/protocol",
-    "requestType": "ProtocolTimeseriesGroupsRequest",
-    "responseType": "ProtocolTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-query-type": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "queryType",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/query_type",
-    "requestType": "QueryTypeTimeseriesGroupsRequest",
-    "responseType": "QueryTypeTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-response-code": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "responseCode",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/response_code",
-    "requestType": "ResponseCodeTimeseriesGroupsRequest",
-    "responseType": "ResponseCodeTimeseriesGroupsResponse"
-  },
-  "radar-get-dns-timeseries-group-by-response-ttl": {
-    "accessor": [
-      "radar",
-      "dns",
-      "timeseriesGroups"
-    ],
-    "method": "responseTtl",
-    "httpMethod": "GET",
-    "path": "/radar/dns/timeseries_groups/response_ttl",
-    "requestType": "ResponseTtlTimeseriesGroupsRequest",
-    "responseType": "ResponseTtlTimeseriesGroupsResponse"
   },
   "radar-get-dns-top-ases": {
     "accessor": [
@@ -35884,84 +35784,6 @@
       "dimension"
     ]
   },
-  "radar-get-email-routing-summary-by-arc": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "summary"
-    ],
-    "method": "arc",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/summary/arc",
-    "requestType": "ArcSummaryRequest",
-    "responseType": "ArcSummaryResponse"
-  },
-  "radar-get-email-routing-summary-by-dkim": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "summary"
-    ],
-    "method": "dkim",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/summary/dkim",
-    "requestType": "DkimSummaryRequest",
-    "responseType": "DkimSummaryResponse"
-  },
-  "radar-get-email-routing-summary-by-dmarc": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "summary"
-    ],
-    "method": "dmarc",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/summary/dmarc",
-    "requestType": "DmarcSummaryRequest",
-    "responseType": "DmarcSummaryResponse"
-  },
-  "radar-get-email-routing-summary-by-encrypted": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "summary"
-    ],
-    "method": "encrypted",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/summary/encrypted",
-    "requestType": "EncryptedSummaryRequest",
-    "responseType": "EncryptedSummaryResponse"
-  },
-  "radar-get-email-routing-summary-by-ip-version": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "summary"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/summary/ip_version",
-    "requestType": "IpVersionSummaryRequest",
-    "responseType": "IpVersionSummaryResponse"
-  },
-  "radar-get-email-routing-summary-by-spf": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "summary"
-    ],
-    "method": "spf",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/summary/spf",
-    "requestType": "SpfSummaryRequest",
-    "responseType": "SpfSummaryResponse"
-  },
   "radar-get-email-routing-timeseries-group": {
     "accessor": [
       "radar",
@@ -35976,84 +35798,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-email-routing-timeseries-group-by-arc": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "timeseriesGroups"
-    ],
-    "method": "arc",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/timeseries_groups/arc",
-    "requestType": "ArcTimeseriesGroupsRequest",
-    "responseType": "ArcTimeseriesGroupsResponse"
-  },
-  "radar-get-email-routing-timeseries-group-by-dkim": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "timeseriesGroups"
-    ],
-    "method": "dkim",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/timeseries_groups/dkim",
-    "requestType": "DkimTimeseriesGroupsRequest",
-    "responseType": "DkimTimeseriesGroupsResponse"
-  },
-  "radar-get-email-routing-timeseries-group-by-dmarc": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "timeseriesGroups"
-    ],
-    "method": "dmarc",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/timeseries_groups/dmarc",
-    "requestType": "DmarcTimeseriesGroupsRequest",
-    "responseType": "DmarcTimeseriesGroupsResponse"
-  },
-  "radar-get-email-routing-timeseries-group-by-encrypted": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "timeseriesGroups"
-    ],
-    "method": "encrypted",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/timeseries_groups/encrypted",
-    "requestType": "EncryptedTimeseriesGroupsRequest",
-    "responseType": "EncryptedTimeseriesGroupsResponse"
-  },
-  "radar-get-email-routing-timeseries-group-by-ip-version": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "timeseriesGroups"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/timeseries_groups/ip_version",
-    "requestType": "IpVersionTimeseriesGroupsRequest",
-    "responseType": "IpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-email-routing-timeseries-group-by-spf": {
-    "accessor": [
-      "radar",
-      "email",
-      "routing",
-      "timeseriesGroups"
-    ],
-    "method": "spf",
-    "httpMethod": "GET",
-    "path": "/radar/email/routing/timeseries_groups/spf",
-    "requestType": "SpfTimeseriesGroupsRequest",
-    "responseType": "SpfTimeseriesGroupsResponse"
   },
   "radar-get-email-security-summary": {
     "accessor": [
@@ -36070,123 +35814,6 @@
       "dimension"
     ]
   },
-  "radar-get-email-security-summary-by-arc": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "arc",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/arc",
-    "requestType": "ArcSummaryRequest",
-    "responseType": "ArcSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-dkim": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "dkim",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/dkim",
-    "requestType": "DkimSummaryRequest",
-    "responseType": "DkimSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-dmarc": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "dmarc",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/dmarc",
-    "requestType": "DmarcSummaryRequest",
-    "responseType": "DmarcSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-malicious": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "malicious",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/malicious",
-    "requestType": "MaliciousSummaryRequest",
-    "responseType": "MaliciousSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-spam": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "spam",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/spam",
-    "requestType": "SpamSummaryRequest",
-    "responseType": "SpamSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-spf": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "spf",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/spf",
-    "requestType": "SpfSummaryRequest",
-    "responseType": "SpfSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-spoof": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "spoof",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/spoof",
-    "requestType": "SpoofSummaryRequest",
-    "responseType": "SpoofSummaryResponse"
-  },
-  "radar-get-email-security-summary-by-threat-category": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "threatCategory",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/threat_category",
-    "requestType": "ThreatCategorySummaryRequest",
-    "responseType": "ThreatCategorySummaryResponse"
-  },
-  "radar-get-email-security-summary-by-tls-version": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "summary"
-    ],
-    "method": "tlsVersion",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/summary/tls_version",
-    "requestType": "TlsVersionSummaryRequest",
-    "responseType": "TlsVersionSummaryResponse"
-  },
   "radar-get-email-security-timeseries-group": {
     "accessor": [
       "radar",
@@ -36201,123 +35828,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-email-security-timeseries-group-by-arc": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "arc",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/arc",
-    "requestType": "ArcTimeseriesGroupsRequest",
-    "responseType": "ArcTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-dkim": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "dkim",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/dkim",
-    "requestType": "DkimTimeseriesGroupsRequest",
-    "responseType": "DkimTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-dmarc": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "dmarc",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/dmarc",
-    "requestType": "DmarcTimeseriesGroupsRequest",
-    "responseType": "DmarcTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-malicious": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "malicious",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/malicious",
-    "requestType": "MaliciousTimeseriesGroupsRequest",
-    "responseType": "MaliciousTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-spam": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "spam",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/spam",
-    "requestType": "SpamTimeseriesGroupsRequest",
-    "responseType": "SpamTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-spf": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "spf",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/spf",
-    "requestType": "SpfTimeseriesGroupsRequest",
-    "responseType": "SpfTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-spoof": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "spoof",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/spoof",
-    "requestType": "SpoofTimeseriesGroupsRequest",
-    "responseType": "SpoofTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-threat-category": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "threatCategory",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/threat_category",
-    "requestType": "ThreatCategoryTimeseriesGroupsRequest",
-    "responseType": "ThreatCategoryTimeseriesGroupsResponse"
-  },
-  "radar-get-email-security-timeseries-group-by-tls-version": {
-    "accessor": [
-      "radar",
-      "email",
-      "security",
-      "timeseriesGroups"
-    ],
-    "method": "tlsVersion",
-    "httpMethod": "GET",
-    "path": "/radar/email/security/timeseries_groups/tls_version",
-    "requestType": "TlsVersionTimeseriesGroupsRequest",
-    "responseType": "TlsVersionTimeseriesGroupsResponse"
   },
   "radar-get-email-security-top-tlds-by-malicious": {
     "accessor": [
@@ -36509,102 +36019,6 @@
       "dimension"
     ]
   },
-  "radar-get-http-summary-by-bot-class": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "botClass",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/bot_class",
-    "requestType": "BotClassSummaryRequest",
-    "responseType": "BotClassSummaryResponse"
-  },
-  "radar-get-http-summary-by-device-type": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "deviceType",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/device_type",
-    "requestType": "DeviceTypeSummaryRequest",
-    "responseType": "DeviceTypeSummaryResponse"
-  },
-  "radar-get-http-summary-by-http-protocol": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "httpProtocol",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/http_protocol",
-    "requestType": "HttpProtocolSummaryRequest",
-    "responseType": "HttpProtocolSummaryResponse"
-  },
-  "radar-get-http-summary-by-http-version": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "httpVersion",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/http_version",
-    "requestType": "HttpVersionSummaryRequest",
-    "responseType": "HttpVersionSummaryResponse"
-  },
-  "radar-get-http-summary-by-ip-version": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/ip_version",
-    "requestType": "IpVersionSummaryRequest",
-    "responseType": "IpVersionSummaryResponse"
-  },
-  "radar-get-http-summary-by-operating-system": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "os",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/os",
-    "requestType": "OsSummaryRequest",
-    "responseType": "OsSummaryResponse"
-  },
-  "radar-get-http-summary-by-post-quantum": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "postQuantum",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/post_quantum",
-    "requestType": "PostQuantumSummaryRequest",
-    "responseType": "PostQuantumSummaryResponse"
-  },
-  "radar-get-http-summary-by-tls-version": {
-    "accessor": [
-      "radar",
-      "http",
-      "summary"
-    ],
-    "method": "tlsVersion",
-    "httpMethod": "GET",
-    "path": "/radar/http/summary/tls_version",
-    "requestType": "TlsVersionSummaryRequest",
-    "responseType": "TlsVersionSummaryResponse"
-  },
   "radar-get-http-timeseries": {
     "accessor": [
       "radar",
@@ -36629,126 +36043,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-http-timeseries-group-by-bot-class": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "botClass",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/bot_class",
-    "requestType": "BotClassTimeseriesGroupsRequest",
-    "responseType": "BotClassTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-browser-families": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "browserFamily",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/browser_family",
-    "requestType": "BrowserFamilyTimeseriesGroupsRequest",
-    "responseType": "BrowserFamilyTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-browsers": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "browser",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/browser",
-    "requestType": "BrowserTimeseriesGroupsRequest",
-    "responseType": "BrowserTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-device-type": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "deviceType",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/device_type",
-    "requestType": "DeviceTypeTimeseriesGroupsRequest",
-    "responseType": "DeviceTypeTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-http-protocol": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "httpProtocol",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/http_protocol",
-    "requestType": "HttpProtocolTimeseriesGroupsRequest",
-    "responseType": "HttpProtocolTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-http-version": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "httpVersion",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/http_version",
-    "requestType": "HttpVersionTimeseriesGroupsRequest",
-    "responseType": "HttpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-ip-version": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "ipVersion",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/ip_version",
-    "requestType": "IpVersionTimeseriesGroupsRequest",
-    "responseType": "IpVersionTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-operating-system": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "os",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/os",
-    "requestType": "OsTimeseriesGroupsRequest",
-    "responseType": "OsTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-post-quantum": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "postQuantum",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/post_quantum",
-    "requestType": "PostQuantumTimeseriesGroupsRequest",
-    "responseType": "PostQuantumTimeseriesGroupsResponse"
-  },
-  "radar-get-http-timeseries-group-by-tls-version": {
-    "accessor": [
-      "radar",
-      "http",
-      "timeseriesGroups"
-    ],
-    "method": "tlsVersion",
-    "httpMethod": "GET",
-    "path": "/radar/http/timeseries_groups/tls_version",
-    "requestType": "TlsVersionTimeseriesGroupsRequest",
-    "responseType": "TlsVersionTimeseriesGroupsResponse"
   },
   "radar-get-http-top-ases-by-bot-class": {
     "accessor": [
@@ -36889,30 +36183,6 @@
     "requiredRequestProperties": [
       "tls_version"
     ]
-  },
-  "radar-get-http-top-browser-families": {
-    "accessor": [
-      "radar",
-      "http",
-      "top"
-    ],
-    "method": "browserFamily",
-    "httpMethod": "GET",
-    "path": "/radar/http/top/browser_family",
-    "requestType": "BrowserFamilyTopRequest",
-    "responseType": "BrowserFamilyTopResponse"
-  },
-  "radar-get-http-top-browsers": {
-    "accessor": [
-      "radar",
-      "http",
-      "top"
-    ],
-    "method": "browser",
-    "httpMethod": "GET",
-    "path": "/radar/http/top/browser",
-    "requestType": "BrowserTopRequest",
-    "responseType": "BrowserTopResponse"
   },
   "radar-get-http-top-locations-by-bot-class": {
     "accessor": [
@@ -37068,30 +36338,6 @@
       "dimension"
     ]
   },
-  "radar-get-leaked-credential-checks-summary-by-bot-class": {
-    "accessor": [
-      "radar",
-      "leakedCredentials",
-      "summary"
-    ],
-    "method": "botClass",
-    "httpMethod": "GET",
-    "path": "/radar/leaked_credential_checks/summary/bot_class",
-    "requestType": "BotClassSummaryRequest",
-    "responseType": "BotClassSummaryResponse"
-  },
-  "radar-get-leaked-credential-checks-summary-by-compromised": {
-    "accessor": [
-      "radar",
-      "leakedCredentials",
-      "summary"
-    ],
-    "method": "compromised",
-    "httpMethod": "GET",
-    "path": "/radar/leaked_credential_checks/summary/compromised",
-    "requestType": "CompromisedSummaryRequest",
-    "responseType": "CompromisedSummaryResponse"
-  },
   "radar-get-leaked-credential-checks-timeseries-group": {
     "accessor": [
       "radar",
@@ -37106,30 +36352,6 @@
       "dimension"
     ]
   },
-  "radar-get-leaked-credential-checks-timeseries-group-by-bot-class": {
-    "accessor": [
-      "radar",
-      "leakedCredentials",
-      "timeseriesGroups"
-    ],
-    "method": "botClass",
-    "httpMethod": "GET",
-    "path": "/radar/leaked_credential_checks/timeseries_groups/bot_class",
-    "requestType": "BotClassTimeseriesGroupsRequest",
-    "responseType": "BotClassTimeseriesGroupsResponse"
-  },
-  "radar-get-leaked-credential-checks-timeseries-group-by-compromised": {
-    "accessor": [
-      "radar",
-      "leakedCredentials",
-      "timeseriesGroups"
-    ],
-    "method": "compromised",
-    "httpMethod": "GET",
-    "path": "/radar/leaked_credential_checks/timeseries_groups/compromised",
-    "requestType": "CompromisedTimeseriesGroupsRequest",
-    "responseType": "CompromisedTimeseriesGroupsResponse"
-  },
   "radar-get-netflows-summary": {
     "accessor": [
       "radar",
@@ -37143,17 +36365,6 @@
     "requiredRequestProperties": [
       "dimension"
     ]
-  },
-  "radar-get-netflows-summary-deprecated": {
-    "accessor": [
-      "radar",
-      "netflows"
-    ],
-    "method": "summary",
-    "httpMethod": "GET",
-    "path": "/radar/netflows/summary",
-    "requestType": "SummaryNetflowsRequest",
-    "responseType": "SummaryNetflowsResponse"
   },
   "radar-get-netflows-timeseries": {
     "accessor": [
@@ -37647,30 +36858,6 @@
     "requiredRequestProperties": [
       "uuid"
     ]
-  },
-  "radar-get-verified-bots-top-by-http-requests": {
-    "accessor": [
-      "radar",
-      "verifiedBots",
-      "top"
-    ],
-    "method": "bots",
-    "httpMethod": "GET",
-    "path": "/radar/verified_bots/top/bots",
-    "requestType": "BotsTopRequest",
-    "responseType": "BotsTopResponse"
-  },
-  "radar-get-verified-bots-top-categories-by-http-requests": {
-    "accessor": [
-      "radar",
-      "verifiedBots",
-      "top"
-    ],
-    "method": "categories",
-    "httpMethod": "GET",
-    "path": "/radar/verified_bots/top/categories",
-    "requestType": "CategoriesTopRequest",
-    "responseType": "CategoriesTopResponse"
   },
   "radar-post-reports-dataset-download-url": {
     "accessor": [
@@ -38181,6 +37368,23 @@
       "article_id"
     ]
   },
+  "rssArticleCustomSkillsList": {
+    "accessor": [
+      "cloudforceOne",
+      "threatSignals",
+      "articles",
+      "skills"
+    ],
+    "method": "list",
+    "httpMethod": "GET",
+    "path": "/accounts/{account_id}/cloudforce-one/v2/threat-signals/articles/{article_id}/skills",
+    "requestType": "ListSkillsRequest",
+    "responseType": "ListSkillsResponse",
+    "requiredRequestProperties": [
+      "account_id",
+      "article_id"
+    ]
+  },
   "rssArticleGet": {
     "accessor": [
       "cloudforceOne",
@@ -38537,8 +37741,7 @@
       "account_id",
       "name",
       "output_schema",
-      "prompt",
-      "type"
+      "prompt"
     ]
   },
   "rssSkillDelete": {
@@ -43029,7 +42232,8 @@
       "magicTransit",
       "advancedTcpProtection",
       "configs",
-      "allowlist"
+      "allowlist",
+      "prefix"
     ],
     "method": "update",
     "httpMethod": "PATCH",
@@ -44134,172 +43338,6 @@
     "path": "/user",
     "responseType": "GetUserResponse"
   },
-  "vectorize-(-deprecated)-create-vectorize-index": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/vectorize/indexes",
-    "requestType": "CreateDeprecatedIndexesRequest",
-    "responseType": "VectorizeCreateIndexResponse",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body"
-    ]
-  },
-  "vectorize-(-deprecated)-delete-vectorize-index": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes"
-    ],
-    "method": "delete",
-    "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}",
-    "requestType": "DeleteDeprecatedIndexesRequest",
-    "requiredRequestProperties": [
-      "account_id",
-      "index_name"
-    ]
-  },
-  "vectorize-(-deprecated)-delete-vectors-by-id": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes",
-      "deleteBy",
-      "ids"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}/delete-by-ids",
-    "requestType": "CreateIdsRequest",
-    "responseType": "VectorizeIndexDeleteVectorsByIdResponse",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "index_name"
-    ]
-  },
-  "vectorize-(-deprecated)-get-vectorize-index": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes"
-    ],
-    "method": "get",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}",
-    "requestType": "GetDeprecatedIndexesRequest",
-    "responseType": "VectorizeCreateIndexResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "index_name"
-    ]
-  },
-  "vectorize-(-deprecated)-get-vectors-by-id": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes",
-      "getBy",
-      "ids"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}/get-by-ids",
-    "requestType": "CreateIdsRequest",
-    "responseType": "CreateIdsResponse",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "index_name"
-    ]
-  },
-  "vectorize-(-deprecated)-insert-vector": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes",
-      "insert"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}/insert",
-    "requestType": "CreateInsertRequest",
-    "responseType": "VectorizeIndexInsertResponse",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "index_name"
-    ]
-  },
-  "vectorize-(-deprecated)-list-vectorize-indexes": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes"
-    ],
-    "method": "list",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/vectorize/indexes",
-    "requestType": "ListDeprecatedIndexesRequest",
-    "responseType": "ListDeprecatedIndexesResponse",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "vectorize-(-deprecated)-query-vector": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes",
-      "query"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}/query",
-    "requestType": "VectorizeIndexQueryRequest",
-    "responseType": "VectorizeIndexQueryResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "index_name",
-      "vector"
-    ]
-  },
-  "vectorize-(-deprecated)-update-vectorize-index": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes"
-    ],
-    "method": "update",
-    "httpMethod": "PUT",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}",
-    "requestType": "VectorizeUpdateIndexRequest",
-    "responseType": "VectorizeCreateIndexResponse",
-    "requiredRequestProperties": [
-      "account_id",
-      "description",
-      "index_name"
-    ]
-  },
-  "vectorize-(-deprecated)-upsert-vector": {
-    "accessor": [
-      "vectorize",
-      "deprecatedIndexes",
-      "upsert"
-    ],
-    "method": "create",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/vectorize/indexes/{index_name}/upsert",
-    "requestType": "CreateUpsertRequest",
-    "responseType": "VectorizeIndexUpsertResponse",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "index_name"
-    ]
-  },
   "vectorize-create-metadata-index": {
     "accessor": [
       "vectorize",
@@ -44324,12 +43362,12 @@
     "method": "create",
     "httpMethod": "POST",
     "path": "/accounts/{account_id}/vectorize/v2/indexes",
-    "requestType": "CreateVectorizeRequest",
+    "requestType": "VectorizeCreateIndexRequest",
     "responseType": "VectorizeCreateIndexResponse",
-    "requestBodyProperty": "body",
     "requiredRequestProperties": [
       "account_id",
-      "body"
+      "config",
+      "name"
     ]
   },
   "vectorize-delete-metadata-index": {
@@ -44368,12 +43406,10 @@
     "method": "deleteByIds",
     "httpMethod": "POST",
     "path": "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/delete_by_ids",
-    "requestType": "DeleteByIdsVectorizeRequest",
+    "requestType": "VectorizeIndexDeleteVectorsByIdRequest",
     "responseType": "VectorizeIndexDeleteVectorsByIdV2Response",
-    "requestBodyProperty": "body",
     "requiredRequestProperties": [
       "account_id",
-      "body",
       "index_name"
     ]
   },
@@ -44398,12 +43434,10 @@
     "method": "getByIds",
     "httpMethod": "POST",
     "path": "/accounts/{account_id}/vectorize/v2/indexes/{index_name}/get_by_ids",
-    "requestType": "GetByIdsVectorizeRequest",
+    "requestType": "VectorizeIndexGetVectorsByIdRequest",
     "responseType": "GetByIdsVectorizeResponse",
-    "requestBodyProperty": "body",
     "requiredRequestProperties": [
       "account_id",
-      "body",
       "index_name"
     ]
   },
@@ -46949,23 +45983,6 @@
       "namespace_id"
     ]
   },
-  "workers-kv-namespace-delete-multiple-key-value-pairs-deprecated": {
-    "accessor": [
-      "kv",
-      "bulkDeprecated"
-    ],
-    "method": "delete",
-    "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk",
-    "requestType": "DeleteBulkDeprecatedRequest",
-    "responseType": "WorkersKvBulkResult",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body",
-      "namespace_id"
-    ]
-  },
   "workers-kv-namespace-get-a-namespace": {
     "accessor": [
       "kv",
@@ -47171,7 +46188,9 @@
     "responseType": "WorkersDomain",
     "requiredRequestProperties": [
       "account_id",
+      "enabled",
       "hostname",
+      "previews_enabled",
       "service",
       "zone_id",
       "zone_name"
@@ -47199,18 +46218,17 @@
   },
   "workers.previews.delete": {
     "accessor": [
-      "workers",
       "previews"
     ],
     "method": "delete",
     "httpMethod": "DELETE",
-    "path": "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}",
+    "path": "/accounts/{account_id}/workers/workers/{worker}/previews/{name}",
     "requestType": "DeletePreviewsRequest",
     "responseType": "WorkersApiResponseCommon",
     "requiredRequestProperties": [
       "account_id",
-      "preview_id",
-      "worker_id"
+      "name",
+      "worker"
     ]
   },
   "workers.previews.deployments.create": {
@@ -47435,21 +46453,6 @@
       "account_id"
     ]
   },
-  "zero-trust-accounts-get-egress-cidr-pairs": {
-    "accessor": [
-      "zeroTrust",
-      "gateway",
-      "egressCidrPairs"
-    ],
-    "method": "list",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/gateway/egress_cidr_pairs",
-    "requestType": "ListEgressCidrPairsRequest",
-    "responseType": "ListEgressCidrPairsResponse",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
   "zero-trust-accounts-get-logging-settings-for-the-zero-trust-account": {
     "accessor": [
       "zeroTrust",
@@ -47589,41 +46592,6 @@
     "requiredRequestProperties": [
       "account_id",
       "body"
-    ]
-  },
-  "zero-trust-applications-review-status-list": {
-    "accessor": [
-      "zeroTrust",
-      "apps",
-      "review",
-      "status"
-    ],
-    "method": "list",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/gateway/apps/review_status",
-    "requestType": "ListStatusRequest",
-    "responseType": "ZeroTrustGatewayApplicationsReviewStatusResponseContent",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "zero-trust-applications-review-status-update": {
-    "accessor": [
-      "zeroTrust",
-      "apps",
-      "review",
-      "status"
-    ],
-    "method": "update",
-    "httpMethod": "PUT",
-    "path": "/accounts/{account_id}/gateway/apps/review_status",
-    "requestType": "UpdateStatusRequest",
-    "responseType": "ZeroTrustGatewayApplicationsReviewStatusResponseContent",
-    "requiredRequestProperties": [
-      "account_id",
-      "approved_apps",
-      "in_review_apps",
-      "unapproved_apps"
     ]
   },
   "zero-trust-certificates-activate-zero-trust-certificate": {
@@ -47843,37 +46811,6 @@
     "requiredRequestProperties": [
       "account_id",
       "location_id"
-    ]
-  },
-  "zero-trust-gateway-operations-list-zero-trust-gateway-operations": {
-    "accessor": [
-      "zeroTrust",
-      "gateway",
-      "operations"
-    ],
-    "method": "list",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/gateway/operations",
-    "requestType": "ListOperationsRequest",
-    "responseType": "ListOperationsResponse",
-    "requiredRequestProperties": [
-      "account_id"
-    ]
-  },
-  "zero-trust-gateway-operations-zero-trust-gateway-operation-details": {
-    "accessor": [
-      "zeroTrust",
-      "gateway",
-      "operations"
-    ],
-    "method": "get",
-    "httpMethod": "GET",
-    "path": "/accounts/{account_id}/gateway/operations/{operation_id}",
-    "requestType": "GetOperationsRequest",
-    "responseType": "ZeroTrustGatewayOperation",
-    "requiredRequestProperties": [
-      "account_id",
-      "operation_id"
     ]
   },
   "zero-trust-gateway-pacfiles-create-pacfile": {
@@ -48102,39 +47039,6 @@
       "account_id"
     ]
   },
-  "zero-trust-gateway-rules-patch-multiple-zero-trust-gateway-rules": {
-    "accessor": [
-      "zeroTrust",
-      "gateway",
-      "rules"
-    ],
-    "method": "bulkEdit",
-    "httpMethod": "PATCH",
-    "path": "/accounts/{account_id}/gateway/rules",
-    "requestType": "BulkEditRulesRequest",
-    "responseType": "BulkEditRulesResponse",
-    "requestBodyProperty": "body",
-    "requiredRequestProperties": [
-      "account_id",
-      "body"
-    ]
-  },
-  "zero-trust-gateway-rules-patch-zero-trust-gateway-rule": {
-    "accessor": [
-      "zeroTrust",
-      "gateway",
-      "rules"
-    ],
-    "method": "edit",
-    "httpMethod": "PATCH",
-    "path": "/accounts/{account_id}/gateway/rules/{rule_id}",
-    "requestType": "EditRulesRequest",
-    "responseType": "ZeroTrustGatewayRules",
-    "requiredRequestProperties": [
-      "account_id",
-      "rule_id"
-    ]
-  },
   "zero-trust-gateway-rules-reset-expiration-zero-trust-gateway-rule": {
     "accessor": [
       "zeroTrust",
@@ -48216,22 +47120,6 @@
       "account_id",
       "name",
       "type"
-    ]
-  },
-  "zero-trust-lists-create-zero-trust-list-from-csv": {
-    "accessor": [
-      "zeroTrust",
-      "gateway",
-      "lists"
-    ],
-    "method": "upload",
-    "httpMethod": "POST",
-    "path": "/accounts/{account_id}/gateway/lists/upload",
-    "requestType": "UploadListsRequest",
-    "responseType": "ZeroTrustGatewayCsvOperation",
-    "requiredRequestProperties": [
-      "account_id",
-      "file"
     ]
   },
   "zero-trust-lists-delete-zero-trust-list": {

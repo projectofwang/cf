@@ -34,6 +34,7 @@ export type ResourceTaggingTaggedResourceObject =
     | CloudflareApi.ResourceTaggingTaggedResourceObject.LoadBalancerMonitor
     | CloudflareApi.ResourceTaggingTaggedResourceObject.LoadBalancerPool
     | CloudflareApi.ResourceTaggingTaggedResourceObject.ManagedClientCertificate
+    | CloudflareApi.ResourceTaggingTaggedResourceObject.NamespaceWorker
     | CloudflareApi.ResourceTaggingTaggedResourceObject.PagesProject
     | CloudflareApi.ResourceTaggingTaggedResourceObject.Queue
     | CloudflareApi.ResourceTaggingTaggedResourceObject.R2Bucket
@@ -176,6 +177,10 @@ export namespace ResourceTaggingTaggedResourceObject {
         type: "managed_client_certificate";
     }
 
+    export interface NamespaceWorker extends CloudflareApi.ResourceTaggingTaggedResourceObjectNamespaceWorker {
+        type: "namespace_worker";
+    }
+
     export interface PagesProject extends CloudflareApi.ResourceTaggingTaggedResourceObjectPagesProject {
         type: "pages_project";
     }
@@ -256,6 +261,7 @@ export namespace ResourceTaggingTaggedResourceObject {
         | CloudflareApi.ResourceTaggingTaggedResourceObject.LoadBalancerMonitor
         | CloudflareApi.ResourceTaggingTaggedResourceObject.LoadBalancerPool
         | CloudflareApi.ResourceTaggingTaggedResourceObject.ManagedClientCertificate
+        | CloudflareApi.ResourceTaggingTaggedResourceObject.NamespaceWorker
         | CloudflareApi.ResourceTaggingTaggedResourceObject.PagesProject
         | CloudflareApi.ResourceTaggingTaggedResourceObject.Queue
         | CloudflareApi.ResourceTaggingTaggedResourceObject.R2Bucket

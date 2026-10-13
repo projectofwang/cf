@@ -11,6 +11,7 @@ export type AccessIdentityProviders =
     | CloudflareApi.AccessGoogleApps
     | CloudflareApi.AccessLinkedin
     | CloudflareApi.AccessOidc
+    | CloudflareApi.AccessDuo
     | CloudflareApi.AccessOkta
     | CloudflareApi.AccessOnelogin
     | CloudflareApi.AccessPingone

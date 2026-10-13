@@ -33,6 +33,7 @@ export const ResourceTaggingResourceType = {
     LoadBalancerMonitor: "load_balancer_monitor",
     LoadBalancerPool: "load_balancer_pool",
     ManagedClientCertificate: "managed_client_certificate",
+    NamespaceWorker: "namespace_worker",
     PagesProject: "pages_project",
     Queue: "queue",
     R2Bucket: "r2_bucket",

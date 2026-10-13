@@ -29,6 +29,7 @@ export type ResourceTaggingSetTagsRequestAccountLevel =
     | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.KvNamespace
     | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.LoadBalancerMonitor
     | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.LoadBalancerPool
+    | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.NamespaceWorker
     | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.PagesProject
     | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.Queue
     | CloudflareApi.ResourceTaggingSetTagsRequestAccountLevel.R2Bucket
@@ -130,6 +131,10 @@ export namespace ResourceTaggingSetTagsRequestAccountLevel {
 
     export interface LoadBalancerPool extends CloudflareApi.ResourceTaggingSetTagsRequestAccountLevelBase {
         resource_type: "load_balancer_pool";
+    }
+
+    export interface NamespaceWorker extends CloudflareApi.ResourceTaggingSetTagsRequestAccountLevelBase {
+        resource_type: "namespace_worker";
     }
 
     export interface PagesProject extends CloudflareApi.ResourceTaggingSetTagsRequestAccountLevelBase {

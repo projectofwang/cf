@@ -29,6 +29,7 @@ export type ResourceTaggingDeleteTagsRequestAccountLevel =
     | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.KvNamespace
     | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.LoadBalancerMonitor
     | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.LoadBalancerPool
+    | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.NamespaceWorker
     | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.PagesProject
     | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.Queue
     | CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevel.R2Bucket
@@ -130,6 +131,10 @@ export namespace ResourceTaggingDeleteTagsRequestAccountLevel {
 
     export interface LoadBalancerPool extends CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevelBase {
         resource_type: "load_balancer_pool";
+    }
+
+    export interface NamespaceWorker extends CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevelBase {
+        resource_type: "namespace_worker";
     }
 
     export interface PagesProject extends CloudflareApi.ResourceTaggingDeleteTagsRequestAccountLevelBase {
